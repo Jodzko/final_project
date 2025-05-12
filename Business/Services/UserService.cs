@@ -1,0 +1,95 @@
+﻿using _final_project.BusinessLogic.Contracts;
+using _final_project.BusinessLogic.Services.Interfaces;
+using _final_project.Database.Models;
+using _final_project.Database.Persistence.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _final_project.BusinessLogic.Services
+{
+    public class UserService : IUserService
+    {
+        private readonly IUserRepository _userRepo;
+        private readonly IPersonRepository _personRepo;
+
+        public UserService(IUserRepository userRepo, IPersonRepository personRepo)
+        {
+            _userRepo = userRepo;
+            _personRepo = personRepo;
+        }
+        public bool Signup(UserRequest request)
+        {
+            var existingUser = _userRepo.FindUserInDatabase(request.username);
+            if (existingUser != null)
+            {
+                return false;
+            }
+            else
+            {
+                var user = CreateUser(request);
+                _userRepo.AddUserToDatabase(user);
+                return true;
+            }
+        }
+        public User CreateUser(UserRequest request)
+        {
+            CreatePasswordHash(request.password, out byte[] passwordHash, out byte[] passwordSalt);
+            var newUser = new User()
+            {
+                Username = request.username,
+                Password = passwordHash,
+                Salt = passwordSalt,
+                Role = "User"
+            };
+            return newUser;
+        }
+        public bool Login(UserRequest request, out string role)
+        {
+            var account = _userRepo.FindUserInDatabase(request.username);
+
+            if (account == null)
+            {
+                role = string.Empty;
+                return false;
+            }
+            role = account.Role;
+            if (VerifyPasswordHash(request.password, account.Password, account.Salt))
+            {
+                return true;
+            }
+            return false;
+        }
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using var hmac = new HMACSHA512();
+            passwordSalt = hmac.Key;
+            passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+        }
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+            using var hmac = new HMACSHA512(passwordSalt);
+            var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+
+            return computedHash.SequenceEqual(passwordHash);
+        }
+        public bool DeleteUser(string username)
+        {
+            var user = _userRepo.FindUserInDatabase(username);
+            if(user != null)
+            {
+                var person = _personRepo.FindPersonInDb(user.Person.PersonalCode);
+                if (person != null)
+                {
+                    _personRepo.DeletePerson(person);
+                }
+                _userRepo.DeleteUser(user);
+                return true;
+            }
+            return false;
+        }
+    }
+}

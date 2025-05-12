@@ -1,0 +1,14 @@
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.csproj.AssemblyReference.cache
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.AssemblyInfoInputs.cache
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.AssemblyInfo.cs
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.csproj.CoreCompileInputs.cache
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\bin\Debug\net8.0\_final_project.Database.deps.json
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\bin\Debug\net8.0\_final_project.Database.runtimeconfig.json
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\bin\Debug\net8.0\_final_project.Database.dll
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\bin\Debug\net8.0\_final_project.Database.pdb
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.dll
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\refint\_final_project.Database.dll
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.pdb
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.genruntimeconfig.cache
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\ref\_final_project.Database.dll

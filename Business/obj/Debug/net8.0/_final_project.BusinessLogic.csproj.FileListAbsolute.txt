@@ -1,0 +1,15 @@
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\_final_project.BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\_final_project.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\_final_project.BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\_final_project.BusinessLogic.AssemblyInfo.cs
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\_final_project.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\bin\Debug\net8.0\_final_project.BusinessLogic.deps.json
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\bin\Debug\net8.0\_final_project.BusinessLogic.dll
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\bin\Debug\net8.0\_final_project.BusinessLogic.pdb
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\bin\Debug\net8.0\_final_project.Database.dll
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\bin\Debug\net8.0\_final_project.Database.pdb
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\_final_p.B4653D1B.Up2Date
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\_final_project.BusinessLogic.dll
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\refint\_final_project.BusinessLogic.dll
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\_final_project.BusinessLogic.pdb
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\ref\_final_project.BusinessLogic.dll
