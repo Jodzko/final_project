@@ -3,7 +3,7 @@
     "ContainingType": "_final_project.api.Controllers.PersonController",
     "Method": "AddPersonInformation",
     "RelativePath": "AddPersonInformation",
-    "HttpMethod": "PUT",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -35,11 +35,6 @@
       {
         "Name": "profilePicture",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
-        "IsRequired": false
-      },
-      {
-        "Name": "address.Id",
-        "Type": "System.Int32",
         "IsRequired": false
       },
       {
@@ -82,6 +77,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "_final_project.api.Controllers.PersonController",
+    "Method": "GetPersonInformation",
+    "RelativePath": "GetPersonInformation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "personalCode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "_final_project.api.Controllers.UserController",
     "Method": "Login",
     "RelativePath": "Login",
@@ -109,6 +120,67 @@
         "Name": "request",
         "Type": "_final_project.BusinessLogic.Contracts.UserRequest",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_final_project.api.Controllers.PersonController",
+    "Method": "UpdatePersonInformation",
+    "RelativePath": "UpdatePersonInformation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "surname",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "personalCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "profilePicture",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "address.City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "address.Street",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "address.HouseNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "address.AppNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

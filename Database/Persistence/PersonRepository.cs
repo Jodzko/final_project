@@ -20,7 +20,7 @@ namespace _final_project.Database.Persistence
         public void AddOrUpdatePersonInDb(Person person)
         {
             var personInDatabase = FindPersonInDb(person.PersonalCode);
-            if (personInDatabase != null)
+            if (personInDatabase == null)
             {
                 _context.People.Add(person);
                 _context.SaveChanges();

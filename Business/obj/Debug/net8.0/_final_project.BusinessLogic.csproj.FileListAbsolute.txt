@@ -13,3 +13,4 @@ C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0
 C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\refint\_final_project.BusinessLogic.dll
 C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\_final_project.BusinessLogic.pdb
 C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\ref\_final_project.BusinessLogic.dll
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Business\obj\Debug\net8.0\_final_project.BusinessLogic.sourcelink.json

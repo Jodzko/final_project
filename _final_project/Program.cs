@@ -1,5 +1,4 @@
-
-using _final_project.BusinessLogic;
+using _final_project.BusinessLogic.Extensions;
 using _final_project.Database;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

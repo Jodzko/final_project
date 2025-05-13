@@ -57,7 +57,7 @@ namespace _final_project.BusinessLogic.Services
                 return false;
             }
             role = account.Role;
-            if (VerifyPasswordHash(request.password, account.Password, account.Salt))
+            if (VerifyPasswordHash(request.password.ToString(), account.Password, account.Salt))
             {
                 return true;
             }
@@ -84,12 +84,17 @@ namespace _final_project.BusinessLogic.Services
                 var person = _personRepo.FindPersonInDb(user.Person.PersonalCode);
                 if (person != null)
                 {
+                    
                     _personRepo.DeletePerson(person);
                 }
                 _userRepo.DeleteUser(user);
                 return true;
             }
             return false;
+        }
+        public User FindUserInDb(string username)
+        {
+           return _userRepo.FindUserInDatabase(username);
         }
     }
 }

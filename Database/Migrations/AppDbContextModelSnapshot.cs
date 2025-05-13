@@ -39,11 +39,18 @@ namespace _final_project.Database.Migrations
                     b.Property<int>("HouseNumber")
                         .HasColumnType("int");
 
+                    b.Property<string>("PersonId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Street")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PersonId")
+                        .IsUnique();
 
                     b.ToTable("Addresses");
                 });
@@ -52,9 +59,6 @@ namespace _final_project.Database.Migrations
                 {
                     b.Property<string>("PersonalCode")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AddressId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -76,9 +80,14 @@ namespace _final_project.Database.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("PersonalCode");
 
-                    b.HasIndex("AddressId");
+                    b.HasIndex("Username")
+                        .IsUnique();
 
                     b.ToTable("People");
                 });
@@ -92,9 +101,6 @@ namespace _final_project.Database.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("PersonalCode")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -105,29 +111,41 @@ namespace _final_project.Database.Migrations
 
                     b.HasKey("Username");
 
-                    b.HasIndex("PersonalCode");
-
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("_final_project.Database.Models.Address", b =>
+                {
+                    b.HasOne("_final_project.Database.Models.Person", "Person")
+                        .WithOne("Address")
+                        .HasForeignKey("_final_project.Database.Models.Address", "PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Person");
                 });
 
             modelBuilder.Entity("_final_project.Database.Models.Person", b =>
                 {
-                    b.HasOne("_final_project.Database.Models.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
+                    b.HasOne("_final_project.Database.Models.User", "User")
+                        .WithOne("Person")
+                        .HasForeignKey("_final_project.Database.Models.Person", "Username")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Address");
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("_final_project.Database.Models.Person", b =>
+                {
+                    b.Navigation("Address")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("_final_project.Database.Models.User", b =>
                 {
-                    b.HasOne("_final_project.Database.Models.Person", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonalCode");
-
-                    b.Navigation("Person");
+                    b.Navigation("Person")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

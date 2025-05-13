@@ -1,16 +1,8 @@
 ﻿using _final_project.BusinessLogic.Services;
 using _final_project.BusinessLogic.Services.Interfaces;
-using _final_project.Database.Persistence;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace _final_project.BusinessLogic
+namespace _final_project.BusinessLogic.Extensions
 {
     public static class ServiceCollectionExtensions
     {
@@ -20,6 +12,7 @@ namespace _final_project.BusinessLogic
             services.AddScoped<IJwtService, JwtService>();
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IImageService, ImageService>();
             return services;
         }
     }

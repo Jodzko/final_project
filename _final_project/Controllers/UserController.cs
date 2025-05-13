@@ -26,7 +26,11 @@ namespace _final_project.api.Controllers
         [HttpPost]
         public IActionResult Signup([FromBody] UserRequest request)
         {
-            return Ok(_userService.CreateUser(request));
+            if(_userService.Signup(request) == false)
+            {
+                return BadRequest("User already exists");
+            }
+            return Ok();
         }
         [HttpPost]
         public IActionResult Login([FromBody] UserRequest request)

@@ -6,7 +6,7 @@
   },
   "paths": {
     "/AddPersonInformation": {
-      "put": {
+      "post": {
         "tags": [
           "Person"
         ],
@@ -14,10 +14,6 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "required": [
-                  "address.City",
-                  "address.Street"
-                ],
                 "type": "object",
                 "properties": {
                   "name": {
@@ -38,10 +34,6 @@
                   "profilePicture": {
                     "type": "string",
                     "format": "binary"
-                  },
-                  "address.Id": {
-                    "type": "integer",
-                    "format": "int32"
                   },
                   "address.City": {
                     "type": "string"
@@ -78,7 +70,92 @@
                 "profilePicture": {
                   "style": "form"
                 },
-                "address.Id": {
+                "address.City": {
+                  "style": "form"
+                },
+                "address.Street": {
+                  "style": "form"
+                },
+                "address.HouseNumber": {
+                  "style": "form"
+                },
+                "address.AppNumber": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/UpdatePersonInformation": {
+      "put": {
+        "tags": [
+          "Person"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "surname": {
+                    "type": "string"
+                  },
+                  "personalCode": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "profilePicture": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "address.City": {
+                    "type": "string"
+                  },
+                  "address.Street": {
+                    "type": "string"
+                  },
+                  "address.HouseNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "address.AppNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "name": {
+                  "style": "form"
+                },
+                "surname": {
+                  "style": "form"
+                },
+                "personalCode": {
+                  "style": "form"
+                },
+                "phone": {
+                  "style": "form"
+                },
+                "email": {
+                  "style": "form"
+                },
+                "profilePicture": {
                   "style": "form"
                 },
                 "address.City": {
@@ -93,6 +170,37 @@
                 "address.AppNumber": {
                   "style": "form"
                 }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/GetPersonInformation": {
+      "get": {
+        "tags": [
+          "Person"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
               }
             }
           }

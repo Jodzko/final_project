@@ -12,3 +12,4 @@ C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0
 C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.pdb
 C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.genruntimeconfig.cache
 C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\ref\_final_project.Database.dll
+C:\Users\AJodz\OneDrive\Documents\GitHub\final_project\Database\obj\Debug\net8.0\_final_project.Database.sourcelink.json
