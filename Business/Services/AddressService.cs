@@ -10,27 +10,37 @@ namespace _final_project.BusinessLogic.Services
     public class AddressService : IAddressService
     {
         private readonly IAddressRepository _addressRepo;
+        private readonly IPersonRepository _personRepo;
 
-        public AddressService(IAddressRepository addressRepo)
+        public AddressService(IAddressRepository addressRepo, IPersonRepository personRepo)
         {
             _addressRepo = addressRepo;
+            _personRepo = personRepo;
         }
 
-        public Address CreateAddress(AddressRequest request)
+        public bool CreateAddress(AddressRequest request, Person person)
         {
-            var address = new Address
+            if(person.Address == null)
             {
-                City = request.City,
-                Street = request.Street,
-                AppNumber = request.AppNumber,
-                HouseNumber = request.HouseNumber
-            };
-            _addressRepo.AddOrUpdateAddress(address);
-            return address;
+                var address = new Address
+                {
+                    City = request.City,
+                    Street = request.Street,
+                    AppNumber = request.AppNumber,
+                    HouseNumber = request.HouseNumber,
+                    Person = person,
+                    PersonalCode = person.PersonalCode
+                };
+                _addressRepo.AddOrUpdateAddress(address);
+                person.Address = address;
+                person.AddressId = address.Id;
+                _personRepo.AddOrUpdatePersonInDb(person);
+            return true;
+            }
+            return false;
         }
-        public Address UpdateAddress(int addressId, AddressRequest request)
+        public Address UpdateAddress(Address addressInDb, AddressUpdateRequest request)
         {
-            var addressInDb = FindAddressInDb(addressId);
             if(addressInDb != null)
             {
                 if(!request.City.IsNullOrBlank() && request.City != addressInDb.City)

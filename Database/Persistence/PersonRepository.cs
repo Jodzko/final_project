@@ -1,5 +1,6 @@
 ﻿using _final_project.Database.Models;
 using _final_project.Database.Persistence.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,21 +20,27 @@ namespace _final_project.Database.Persistence
 
         public void AddOrUpdatePersonInDb(Person person)
         {
-            var personInDatabase = FindPersonInDb(person.PersonalCode);
-            if (personInDatabase == null)
+            if (person != null)
             {
-                _context.People.Add(person);
-                _context.SaveChanges();
-            }
-            else
-            {
-                _context.People.UpdateRange(personInDatabase, person);
-                _context.SaveChanges();
+                var personInDatabase = FindPersonInDb(person.PersonalCode);
+                if (personInDatabase == null)
+                {
+                    _context.People.Add(person);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    _context.People.UpdateRange(personInDatabase, person);
+                    _context.SaveChanges();
+                }
             }
         }
         public Person FindPersonInDb(string personalCode)
         {
-            return _context.People.FirstOrDefault(x => x.PersonalCode == personalCode);
+            return _context.People
+                .Include(x => x.User)
+                .Include(x => x.Address)
+                .FirstOrDefault(x => x.PersonalCode == personalCode);
         }
         public void DeletePerson(Person person)
         {

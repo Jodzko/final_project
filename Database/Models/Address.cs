@@ -11,6 +11,6 @@ namespace _final_project.Database.Models
         public int HouseNumber { get; set; }
         public int AppNumber { get; set; }
         public Person Person { get; set; }
-        public string PersonId { get; set; }
+        public string PersonalCode { get; set; }
     }
 }

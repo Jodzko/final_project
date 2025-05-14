@@ -1,5 +1,6 @@
 ﻿using _final_project.Database.Models;
 using _final_project.Database.Persistence.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,9 @@ namespace _final_project.Database.Persistence
 
         public Address FindAddressInDb(int addressId)
         {
-            return _context.Addresses.FirstOrDefault( x => x.Id == addressId);
+            return _context.Addresses
+                .Include(x => x.Person)
+                .FirstOrDefault( x => x.Id == addressId);
         }
         public void AddOrUpdateAddress(Address address)
         {

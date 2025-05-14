@@ -25,35 +25,43 @@ namespace _final_project.api.Controllers
         public IActionResult AddPersonInformation([FromForm] PersonRequest request)
         {            
             var usernameClaim = User.FindFirst(ClaimTypes.Name);
-            if(_userService.FindUserInDb(usernameClaim.Value).Person != null)
+            var person = _userService.FindUserInDb(usernameClaim.Value).PersonalCode;
+            if(person != null)
             {
                 return Unauthorized("You are not allowed to register more than one person or update information of other users");
-
             }
             if (_personService.FindPersonInDb(request.personalCode) != null)
             {
                 return BadRequest("Person with that code already exists");
             }
-            _personService.CreatePerson(request);
+            var user = _userService.FindUserInDb(usernameClaim.Value);
+            _personService.CreatePerson(request, user);
             return Ok("Person created succesfully");
         }
         [HttpPut]
-        public IActionResult UpdatePersonInformation([FromForm] string personalCode, PersonRequest request)
+        public IActionResult UpdatePersonInformation([FromForm] PersonUpdateRequest request)
         {
-            //var usernameClaim = User.FindFirst(ClaimTypes.Name);
-            //_userService.FindUserInDb(usernameClaim.Value);
-            //_personService.UpdatePerson(personalCode, request);
-            //return Ok();
+            var usernameClaim = User.FindFirst(ClaimTypes.Name);
+            var user = _userService.FindUserInDb(usernameClaim.Value);
+            if(user != null)
+            {
+            if(user.PersonalCode == null)
+            {
+                return BadRequest("You must first a create a person for your user");
+            }
+            if(user.Username != usernameClaim.Value)
+            {
+                return Unauthorized("You can only change your own information");
+            }
+            _personService.UpdatePerson(user.Person, request);
+            return Ok();
+            }
+            return BadRequest("You must first register a user");
         }
         [HttpGet]
-        public IActionResult GetPersonInformation([FromBody] string personalCode)
+        public IActionResult GetPersonInformation([FromQuery] string personalCode)
         {
-            var person = _personService.FindPersonInDb(personalCode);
-            if(person != null)
-            {
-                return Ok(person);
-            }
-            return BadRequest("Person not found");
+            return Ok(_personService.GetPerson(personalCode));
         }
     }
 }

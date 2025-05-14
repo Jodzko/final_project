@@ -1,5 +1,6 @@
 ﻿using _final_project.Database.Models;
 using _final_project.Database.Persistence.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,9 @@ namespace _final_project.Database.Persistence
         }
         public User FindUserInDatabase(string username)
         {
-            return _context.Users.FirstOrDefault(x => x.Username == username);
+            return _context.Users
+                .Include(x => x.Person)
+                .FirstOrDefault(x => x.Username == username);
         }
         public void DeleteUser(User user)
         {

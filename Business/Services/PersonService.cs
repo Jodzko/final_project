@@ -17,7 +17,7 @@ namespace _final_project.BusinessLogic.Services
             _personRepo = personRepo;
             _imageService = image;
         }
-        public bool CreatePerson(PersonRequest request)
+        public bool CreatePerson(PersonRequest request, User user)
         {
             if (_personRepo.FindPersonInDb(request.personalCode) != null)
             {
@@ -30,8 +30,11 @@ namespace _final_project.BusinessLogic.Services
                 Surname = request.surname,
                 PersonalCode = request.personalCode,
                 PhoneNumber = request.phone,
-                Picture = _imageService.CreatePicture(request.profilePicture)
+                Picture = _imageService.CreatePicture(request.profilePicture),
+                User = user,
             };
+            user.PersonalCode = person.PersonalCode;
+            user.Person = person;
             _personRepo.AddOrUpdatePersonInDb(person);
             return true;
         }
@@ -47,9 +50,8 @@ namespace _final_project.BusinessLogic.Services
                 _personRepo.DeletePerson(person);
             }
         }
-        public void UpdatePerson(string personalCode, PersonRequest request)
+        public void UpdatePerson(Person personInDb, PersonUpdateRequest request)
         {
-            var personInDb = FindPersonInDb(personalCode);
             if(personInDb != null)
             {
                 if(!request.name.IsNullOrBlank() && request.name != personInDb.Name)
@@ -70,6 +72,28 @@ namespace _final_project.BusinessLogic.Services
                 }
             }
             _personRepo.AddOrUpdatePersonInDb(personInDb);
+        }
+        public PersonResponse GetPerson(string personalCode)
+        {
+            var personInDb = _personRepo.FindPersonInDb(personalCode);
+            if(personInDb != null)
+            {
+            var person = new PersonResponse
+            {
+                personalCode = personInDb.PersonalCode,
+                name = personInDb.Name,
+                surname = personInDb.Surname,
+                phone = personInDb.PhoneNumber,
+                email = personInDb.Email,
+                profilePicture = personInDb.Picture,
+                city = personInDb.Address.City,
+                street = personInDb.Address.Street,
+                houseNumber = personInDb.Address.HouseNumber,
+                appNumber = personInDb.Address.AppNumber,
+            };
+            return person;
+            }
+            return null;
         }
     }
 }

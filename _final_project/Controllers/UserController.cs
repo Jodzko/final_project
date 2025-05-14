@@ -15,13 +15,11 @@ namespace _final_project.api.Controllers
     {
         private readonly IJwtService _jwtService;
         private readonly IUserService _userService;
-        private readonly IUserRepository _userRepo;
 
-        public UserController(IJwtService jwtService, IUserService userService, IUserRepository userRepo)
+        public UserController(IJwtService jwtService, IUserService userService)
         {
             _jwtService = jwtService;
             _userService = userService;
-            _userRepo = userRepo;
         }
         [HttpPost]
         public IActionResult Signup([FromBody] UserRequest request)

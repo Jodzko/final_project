@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _final_project.Database.Persistence;
 
@@ -11,9 +12,11 @@ using _final_project.Database.Persistence;
 namespace _final_project.Database.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250514171559_fixing")]
+    partial class fixing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +43,7 @@ namespace _final_project.Database.Migrations
                     b.Property<int>("HouseNumber")
                         .HasColumnType("int");
 
-                    b.Property<string>("PersonalCode")
+                    b.Property<string>("PersonId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -50,7 +53,7 @@ namespace _final_project.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PersonalCode")
+                    b.HasIndex("PersonId")
                         .IsUnique();
 
                     b.ToTable("Addresses");
@@ -125,7 +128,7 @@ namespace _final_project.Database.Migrations
                 {
                     b.HasOne("_final_project.Database.Models.Person", "Person")
                         .WithOne("Address")
-                        .HasForeignKey("_final_project.Database.Models.Address", "PersonalCode")
+                        .HasForeignKey("_final_project.Database.Models.Address", "PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

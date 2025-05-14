@@ -14,6 +14,7 @@ namespace _final_project.Database.Models
         public byte[] Password { get; set; }
         public byte[] Salt { get; set; }
         public string Role { get; set; }
-        public Person Person { get; set; }
+        public Person? Person { get; set; }
+        public string? PersonalCode { get; set; }
     }
 }

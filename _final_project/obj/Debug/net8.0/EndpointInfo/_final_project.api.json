@@ -5,6 +5,108 @@
     "version": "1.0"
   },
   "paths": {
+    "/CreateAddress": {
+      "post": {
+        "tags": [
+          "Address"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "City": {
+                    "type": "string"
+                  },
+                  "Street": {
+                    "type": "string"
+                  },
+                  "HouseNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "AppNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "City": {
+                  "style": "form"
+                },
+                "Street": {
+                  "style": "form"
+                },
+                "HouseNumber": {
+                  "style": "form"
+                },
+                "AppNumber": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/UpdateAddress": {
+      "put": {
+        "tags": [
+          "Address"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "City": {
+                    "type": "string"
+                  },
+                  "Street": {
+                    "type": "string"
+                  },
+                  "HouseNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "AppNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "City": {
+                  "style": "form"
+                },
+                "Street": {
+                  "style": "form"
+                },
+                "HouseNumber": {
+                  "style": "form"
+                },
+                "AppNumber": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/AddPersonInformation": {
       "post": {
         "tags": [
@@ -16,13 +118,13 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "personalCode": {
+                    "type": "string"
+                  },
                   "name": {
                     "type": "string"
                   },
                   "surname": {
-                    "type": "string"
-                  },
-                  "personalCode": {
                     "type": "string"
                   },
                   "phone": {
@@ -34,31 +136,17 @@
                   "profilePicture": {
                     "type": "string",
                     "format": "binary"
-                  },
-                  "address.City": {
-                    "type": "string"
-                  },
-                  "address.Street": {
-                    "type": "string"
-                  },
-                  "address.HouseNumber": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "address.AppNumber": {
-                    "type": "integer",
-                    "format": "int32"
                   }
                 }
               },
               "encoding": {
+                "personalCode": {
+                  "style": "form"
+                },
                 "name": {
                   "style": "form"
                 },
                 "surname": {
-                  "style": "form"
-                },
-                "personalCode": {
                   "style": "form"
                 },
                 "phone": {
@@ -68,18 +156,6 @@
                   "style": "form"
                 },
                 "profilePicture": {
-                  "style": "form"
-                },
-                "address.City": {
-                  "style": "form"
-                },
-                "address.Street": {
-                  "style": "form"
-                },
-                "address.HouseNumber": {
-                  "style": "form"
-                },
-                "address.AppNumber": {
                   "style": "form"
                 }
               }
@@ -110,9 +186,6 @@
                   "surname": {
                     "type": "string"
                   },
-                  "personalCode": {
-                    "type": "string"
-                  },
                   "phone": {
                     "type": "string"
                   },
@@ -122,20 +195,6 @@
                   "profilePicture": {
                     "type": "string",
                     "format": "binary"
-                  },
-                  "address.City": {
-                    "type": "string"
-                  },
-                  "address.Street": {
-                    "type": "string"
-                  },
-                  "address.HouseNumber": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "address.AppNumber": {
-                    "type": "integer",
-                    "format": "int32"
                   }
                 }
               },
@@ -146,9 +205,6 @@
                 "surname": {
                   "style": "form"
                 },
-                "personalCode": {
-                  "style": "form"
-                },
                 "phone": {
                   "style": "form"
                 },
@@ -156,18 +212,6 @@
                   "style": "form"
                 },
                 "profilePicture": {
-                  "style": "form"
-                },
-                "address.City": {
-                  "style": "form"
-                },
-                "address.Street": {
-                  "style": "form"
-                },
-                "address.HouseNumber": {
-                  "style": "form"
-                },
-                "address.AppNumber": {
                   "style": "form"
                 }
               }
@@ -186,25 +230,15 @@
         "tags": [
           "Person"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "string"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "string"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "string"
-              }
+        "parameters": [
+          {
+            "name": "personalCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "OK"

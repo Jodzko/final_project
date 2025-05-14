@@ -6,9 +6,10 @@ namespace _final_project.BusinessLogic.Services.Interfaces
 {
     public interface IPersonService
     {
-        public bool CreatePerson(PersonRequest request);
+        public bool CreatePerson(PersonRequest request, User user);
         public void DeletePerson(string personalCode);
         public Person FindPersonInDb(string personalCode);
-        public void UpdatePerson(string personalCode, PersonRequest request);
+        public void UpdatePerson(Person person, PersonUpdateRequest request);
+        public PersonResponse GetPerson(string personalCode);
     }
 }

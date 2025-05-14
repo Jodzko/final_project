@@ -6,8 +6,8 @@ namespace _final_project.BusinessLogic.Services.Interfaces
 {
     public interface IAddressService
     {
-        public Address CreateAddress(AddressRequest request);
-        public Address UpdateAddress(int addressId, AddressRequest request);
+        public bool CreateAddress(AddressRequest request, Person person);
+        public Address UpdateAddress(Address address, AddressUpdateRequest request);
         public Address FindAddressInDb(int addressId);
 
 

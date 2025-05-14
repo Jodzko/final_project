@@ -16,7 +16,8 @@ namespace _final_project.Database.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public required byte[] Picture { get; set; }
-        public Address Address { get; set; }
+        public Address? Address { get; set; }
+        public int? AddressId { get; set; }
         public User User { get; set; }
         public string Username { get; set; }
     }

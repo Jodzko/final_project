@@ -8,17 +8,17 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "personalCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "name",
         "Type": "System.String",
         "IsRequired": false
       },
       {
         "Name": "surname",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "personalCode",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -36,24 +36,35 @@
         "Name": "profilePicture",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
-      },
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_final_project.api.Controllers.AddressController",
+    "Method": "CreateAddress",
+    "RelativePath": "CreateAddress",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "address.City",
+        "Name": "City",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "address.Street",
+        "Name": "Street",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "address.HouseNumber",
+        "Name": "HouseNumber",
         "Type": "System.Int32",
         "IsRequired": false
       },
       {
-        "Name": "address.AppNumber",
+        "Name": "AppNumber",
         "Type": "System.Int32",
         "IsRequired": false
       }
@@ -87,7 +98,7 @@
       {
         "Name": "personalCode",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -125,6 +136,37 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "_final_project.api.Controllers.AddressController",
+    "Method": "UpdateAddress",
+    "RelativePath": "UpdateAddress",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Street",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "HouseNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "AppNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "_final_project.api.Controllers.PersonController",
     "Method": "UpdatePersonInformation",
     "RelativePath": "UpdatePersonInformation",
@@ -143,11 +185,6 @@
         "IsRequired": false
       },
       {
-        "Name": "personalCode",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "phone",
         "Type": "System.String",
         "IsRequired": false
@@ -160,26 +197,6 @@
       {
         "Name": "profilePicture",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
-        "IsRequired": false
-      },
-      {
-        "Name": "address.City",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "address.Street",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "address.HouseNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "address.AppNumber",
-        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

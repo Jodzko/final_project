@@ -20,7 +20,7 @@ namespace _final_project.Database.Persistence
             modelBuilder.Entity<Person>()
                 .HasOne(x => x.Address)
                 .WithOne(x => x.Person)
-                .HasForeignKey<Address>(x => x.PersonId);
+                .HasForeignKey<Address>(x => x.PersonalCode);
             modelBuilder.Entity<User>()
                 .HasOne(x => x.Person)
                 .WithOne(x => x.User)
