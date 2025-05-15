@@ -37,5 +37,13 @@ namespace _final_project.Database.Persistence
                 _context.SaveChanges();
             }
         }
+        public void DeleteAddress(Address address)
+        {
+            if (address != null)
+            {
+                _context.Addresses.Remove(address);
+                _context.SaveChanges();
+            }
+        }
     }
 }

@@ -96,9 +96,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "_final_project.BusinessLogic.Contracts.UserRequest",
-        "IsRequired": true
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

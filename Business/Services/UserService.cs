@@ -15,11 +15,13 @@ namespace _final_project.BusinessLogic.Services
     {
         private readonly IUserRepository _userRepo;
         private readonly IPersonRepository _personRepo;
+        private readonly IAddressRepository _addressRepo;
 
-        public UserService(IUserRepository userRepo, IPersonRepository personRepo)
+        public UserService(IUserRepository userRepo, IPersonRepository personRepo, IAddressRepository addressRepo)
         {
             _userRepo = userRepo;
             _personRepo = personRepo;
+            _addressRepo = addressRepo;
         }
         public bool Signup(UserRequest request)
         {
@@ -81,10 +83,18 @@ namespace _final_project.BusinessLogic.Services
             var user = _userRepo.FindUserInDatabase(username);
             if(user != null)
             {
+                if(user.Role == "Admin")
+                {
+                    return false;
+                }
                 var person = _personRepo.FindPersonInDb(user.Person.PersonalCode);
                 if (person != null)
                 {
-                    
+                    var address = _addressRepo.FindAddressInDb(person.Address.Id);
+                    if(address != null)
+                    {
+                        _addressRepo.DeleteAddress(address);
+                    }
                     _personRepo.DeletePerson(person);
                 }
                 _userRepo.DeleteUser(user);

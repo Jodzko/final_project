@@ -7,6 +7,7 @@ namespace _final_project.Database.Persistence.Interfaces
     {
         public Address FindAddressInDb(int addressId);
         public void AddOrUpdateAddress(Address address);
+        public void DeleteAddress(Address address);
 
     }
 }

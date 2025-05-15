@@ -47,13 +47,13 @@ namespace _final_project.api.Controllers
         }
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         [HttpDelete]
-        public IActionResult Delete([FromBody] UserRequest request)
+        public IActionResult Delete([FromQuery] string username)
         {
-            if(_userService.DeleteUser(request.username) == true)
+            if(_userService.DeleteUser(username) == false)
             {
-                return Ok();
+                return BadRequest("Cannot delete user with the Admin role");
             }
-            return BadRequest();
+            return Ok();
         }
         [Authorize]
         [HttpPut]

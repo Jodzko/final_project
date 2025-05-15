@@ -1,12 +1,85 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\AJodz\\OneDrive\\Documents\\GitHub\\final_project\\_final_project\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{81FECF27-F815-4EA5-BEF5-2170BFE6BC7C}|_final_project.api.csproj|c:\\users\\ajodz\\onedrive\\documents\\github\\final_project\\_final_project\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81FECF27-F815-4EA5-BEF5-2170BFE6BC7C}|_final_project.api.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74968F26-DA10-4DD6-AE29-345824FEB962}|..\\Business\\_final_project.BusinessLogic.csproj|c:\\users\\ajodz\\onedrive\\documents\\github\\final_project\\business\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F01F41A-F1B7-4CFB-A496-A6AE8117F49B}|..\\Database\\_final_project.Database.csproj|c:\\users\\ajodz\\onedrive\\documents\\github\\final_project\\database\\persistence\\interfaces\\iaddressrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F01F41A-F1B7-4CFB-A496-A6AE8117F49B}|..\\Database\\_final_project.Database.csproj|c:\\users\\ajodz\\onedrive\\documents\\github\\final_project\\database\\persistence\\addressrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\AJodz\\OneDrive\\Documents\\GitHub\\final_project\\_final_project\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\AJodz\\OneDrive\\Documents\\GitHub\\final_project\\_final_project\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwD8AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T17:08:01.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IAddressRepository.cs",
+              "DocumentMoniker": "C:\\Users\\AJodz\\OneDrive\\Documents\\GitHub\\final_project\\Database\\Persistence\\Interfaces\\IAddressRepository.cs",
+              "RelativeDocumentMoniker": "..\\Database\\Persistence\\Interfaces\\IAddressRepository.cs",
+              "ToolTip": "C:\\Users\\AJodz\\OneDrive\\Documents\\GitHub\\final_project\\Database\\Persistence\\Interfaces\\IAddressRepository.cs",
+              "RelativeToolTip": "..\\Database\\Persistence\\Interfaces\\IAddressRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T17:04:17.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddressRepository.cs",
+              "DocumentMoniker": "C:\\Users\\AJodz\\OneDrive\\Documents\\GitHub\\final_project\\Database\\Persistence\\AddressRepository.cs",
+              "RelativeDocumentMoniker": "..\\Database\\Persistence\\AddressRepository.cs",
+              "ToolTip": "C:\\Users\\AJodz\\OneDrive\\Documents\\GitHub\\final_project\\Database\\Persistence\\AddressRepository.cs",
+              "RelativeToolTip": "..\\Database\\Persistence\\AddressRepository.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAiwCwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T17:03:47.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\AJodz\\OneDrive\\Documents\\GitHub\\final_project\\Business\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "..\\Business\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\AJodz\\OneDrive\\Documents\\GitHub\\final_project\\Business\\Services\\UserService.cs",
+              "RelativeToolTip": "..\\Business\\Services\\UserService.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAiwGcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T16:59:22.064Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
