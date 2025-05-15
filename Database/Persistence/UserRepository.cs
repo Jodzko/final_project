@@ -28,11 +28,17 @@ namespace _final_project.Database.Persistence
         {
             return _context.Users
                 .Include(x => x.Person)
+                .Include(x => x.Person.Address)
                 .FirstOrDefault(x => x.Username == username);
         }
         public void DeleteUser(User user)
         {
             _context.Users.Remove(user);
+            _context.SaveChanges();
+        }
+        public void UpdateUser(User user)
+        {
+            _context.Users.UpdateRange(user);
             _context.SaveChanges();
         }
     }

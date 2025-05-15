@@ -96,5 +96,21 @@ namespace _final_project.BusinessLogic.Services
         {
            return _userRepo.FindUserInDatabase(username);
         }
+        public bool ChangePassword(User user, string password)
+        {
+           if(user != null)
+            {
+                CreatePasswordHash(password, out byte[]passwordHash, out byte[] passwordSalt);
+                if(passwordHash == user.Password || passwordSalt == user.Salt)
+                {
+                    return false;
+                }
+                user.Password = passwordHash;
+                user.Salt = passwordSalt;
+                _userRepo.UpdateUser(user);
+                return true;
+            }
+            return false;
+        }
     }
 }

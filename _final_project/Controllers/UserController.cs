@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace _final_project.api.Controllers
 {
@@ -49,6 +50,18 @@ namespace _final_project.api.Controllers
         public IActionResult Delete([FromBody] UserRequest request)
         {
             if(_userService.DeleteUser(request.username) == true)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+        [Authorize]
+        [HttpPut]
+        public IActionResult ChangePassword([FromQuery] string newPassword)
+        {
+            var usernameClaim = User.FindFirst(ClaimTypes.Name);
+            var user = _userService.FindUserInDb(usernameClaim.Value);
+            if(_userService.ChangePassword(user, newPassword))
             {
                 return Ok();
             }

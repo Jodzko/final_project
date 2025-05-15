@@ -41,6 +41,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "_final_project.api.Controllers.UserController",
+    "Method": "ChangePassword",
+    "RelativePath": "ChangePassword",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newPassword",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "_final_project.api.Controllers.AddressController",
     "Method": "CreateAddress",
     "RelativePath": "CreateAddress",

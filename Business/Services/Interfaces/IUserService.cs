@@ -16,7 +16,6 @@ namespace _final_project.BusinessLogic.Services.Interfaces
         public bool Login(UserRequest request, out string role);
         public bool DeleteUser(string username);
         public User FindUserInDb(string username);
-
-
+        public bool ChangePassword(User user, string password);
     }
 }

@@ -12,6 +12,6 @@ namespace _final_project.Database.Persistence.Interfaces
         public void AddUserToDatabase(User user);
         public User FindUserInDatabase(string username);
         public void DeleteUser(User user);
-
+        public void UpdateUser(User user);
     }
 }

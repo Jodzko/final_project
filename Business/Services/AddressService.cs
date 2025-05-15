@@ -59,6 +59,7 @@ namespace _final_project.BusinessLogic.Services
                     {
                         addressInDb.AppNumber = request.AppNumber;
                     }
+            _addressRepo.AddOrUpdateAddress(addressInDb);
             }
             return addressInDb;
         }
