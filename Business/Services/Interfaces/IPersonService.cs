@@ -11,5 +11,7 @@ namespace _final_project.BusinessLogic.Services.Interfaces
         public Person FindPersonInDb(string personalCode);
         public void UpdatePerson(Person person, PersonUpdateRequest request);
         public PersonResponse GetPerson(string personalCode);
+        public bool DoesEmailExist(string email, out string error);
+
     }
 }

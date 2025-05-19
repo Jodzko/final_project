@@ -95,5 +95,15 @@ namespace _final_project.BusinessLogic.Services
             }
             return null;
         }
+        public bool DoesEmailExist(string email, out string error)
+        {
+            if(_personRepo.DoesEmailExist(email) == true)
+            {
+                error = "Email already exists in database";
+                return true;
+            }
+            error = "No errors";
+            return false;
+        }
     }
 }

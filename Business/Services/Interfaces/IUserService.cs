@@ -10,7 +10,7 @@ namespace _final_project.BusinessLogic.Services.Interfaces
 {
     public interface IUserService
     {
-        public bool Signup(UserRequest request);
+        public bool Signup(UserRequest request, out string error);
 
         public User CreateUser(UserRequest request);
         public bool Login(UserRequest request, out string role);

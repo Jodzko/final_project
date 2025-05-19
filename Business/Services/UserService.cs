@@ -23,17 +23,29 @@ namespace _final_project.BusinessLogic.Services
             _personRepo = personRepo;
             _addressRepo = addressRepo;
         }
-        public bool Signup(UserRequest request)
+        public bool Signup(UserRequest request, out string error)
         {
             var existingUser = _userRepo.FindUserInDatabase(request.username);
             if (existingUser != null)
             {
+                error = "User already exists";
+                return false;
+            }
+            if(string.IsNullOrEmpty(request.username))
+            {
+                error = "Incorrecttly entered username";
+                return false;
+            }
+            if (string.IsNullOrEmpty(request.password))
+            {
+                error = "Incorrectly entered password";
                 return false;
             }
             else
             {
                 var user = CreateUser(request);
                 _userRepo.AddUserToDatabase(user);
+                error = "User created succesfully";
                 return true;
             }
         }

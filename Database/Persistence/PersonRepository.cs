@@ -47,5 +47,14 @@ namespace _final_project.Database.Persistence
             _context.People.Remove(person);
             _context.SaveChanges();
         }
+        public bool DoesEmailExist(string email)
+        {
+            var existingEmail = _context.People.FirstOrDefault(x => x.Email.ToLower() == email.ToLower());
+            if(existingEmail != null)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

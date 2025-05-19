@@ -12,6 +12,8 @@ namespace _final_project.Database.Persistence.Interfaces
         public void AddOrUpdatePersonInDb(Person person);
         public Person FindPersonInDb(string personalCode);
         public void DeletePerson(Person person);
+        public bool DoesEmailExist(string email);
+
 
     }
 }
